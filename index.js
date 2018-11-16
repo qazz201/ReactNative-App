@@ -11,7 +11,8 @@ import store from "./src/store"
 
 let mapSateToProps=(state)=>{
   return{
-    ...state.fetchReducer
+    ...state.fetchReducer,
+    ...state.paginationReducer
   }
 }
 
