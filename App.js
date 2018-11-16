@@ -7,7 +7,10 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Button,Platform, StyleSheet, Text, View} from 'react-native';
+
+
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,10 +21,22 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+componentDidMount(){
+  this.props.fetchData()
+ }
+
   render() {
     console.log(this.props)
     return (
       <View style={styles.container}>
+      <Button
+        onPress={alert}
+
+  title="Learn More"
+  color="#841584"
+  accessibilityLabel="Learn more about this purple button"
+/>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>

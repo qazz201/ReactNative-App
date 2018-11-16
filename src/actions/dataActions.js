@@ -7,10 +7,11 @@ export var dataIsLoading = bool => {
   };
 };
 
-export var storeAddApiData = apiData => {
+export var storeAddApiData = fetchedApiData => {
+
   return {
     type: constants.STORE_ADD_API_DATA,
-    apiData
+    fetchedApiData
   };
 };
 export var dataHasErrorLoad = errorMsg => {

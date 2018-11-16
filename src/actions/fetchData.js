@@ -13,9 +13,9 @@ var requestProps = {
   }
 };
 
-export var fetchData = (dataURL = api.URL) => async dispatch => {
+export default (dataURL = api.URL) => async dispatch => {
   try {
-    dispatch(actionType.dataIsLoading(true));
+   dispatch(actionType.dataIsLoading(true));
 
     var body = await fetch(dataURL, requestProps);
     var data = await body.json();
@@ -23,6 +23,6 @@ export var fetchData = (dataURL = api.URL) => async dispatch => {
     dispatch(actionType.storeAddApiData(data));
     dispatch(actionType.dataIsLoading(false));
   } catch (error) {
-    throw new Error`${error.message}`;
+    throw new Error(`${error.message}`);
   }
 };
