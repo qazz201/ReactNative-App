@@ -9,7 +9,7 @@ export default  (state = defaultState, action) => {
     case constants.PAGINATION_NEXT_PAGE:
       return {
         ...state,
-        currentPage: state.currentPage++
+        currentPage: ++state.currentPage
       }
 
     default:

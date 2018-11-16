@@ -23,7 +23,7 @@ type Props = {};
 export default class App extends Component<Props> {
 
 componentDidMount(){
-  this.props.fetchData()
+  console.log(this.props.fetchData())
  }
 
   render() {
@@ -31,7 +31,7 @@ componentDidMount(){
     return (
       <View style={styles.container}>
       <Button
-        onPress={alert}
+        onPress={this.props.loadNextPage}
 
   title="Learn More"
   color="#841584"

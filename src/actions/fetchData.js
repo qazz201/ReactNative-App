@@ -13,10 +13,10 @@ var requestProps = {
   }
 };
 
-export default (dataURL = api.URL) => async dispatch => {
+export default (dataURL = api.URL,page=1) => async dispatch => {
   try {
    dispatch(actionType.dataIsLoading(true));
-
+console.log(page,"PAGEEEEEEE fetchData")
     var body = await fetch(dataURL, requestProps);
     var data = await body.json();
 
