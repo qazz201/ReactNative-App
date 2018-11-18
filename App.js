@@ -27,15 +27,25 @@ componentDidMount(){
  }
 
   render() {
+    let {
+      currentPage,
+      dataIsLoading,
+      fetchData,
+      fetchedApiData,
+      loadNextPage
+    } = this.props;
+
     console.log(this.props)
+
     return (
       <View style={styles.container}>
+
       <Button
-        onPress={()=>{this.props.loadNextPage(this.props.fetchData )}}
+        onPress={()=>{this.props.loadNextPage( fetchData,currentPage )}}
         title="Learn More"
         color="#841584"
         accessibilityLabel="Learn more about this purple button"
-/>
+        />
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>

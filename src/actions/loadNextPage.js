@@ -2,9 +2,9 @@ import constants from "../constants";
 import fetchData from "./fetchData"
 
 
-export default (calbackFunctionFetch) => dispatch => {
+export default (calbackFunctionFetch,currentPage) => dispatch => {
   dispatch({
     type: constants.PAGINATION_NEXT_PAGE
   })
-  calbackFunctionFetch(null) //fetchData(link,page) in my case
+ calbackFunctionFetch(undefined ,++currentPage) //fetchData(link,page) in my case
 }
