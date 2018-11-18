@@ -7,7 +7,15 @@
  */
 
 import React, {Component} from 'react';
-import {Button,Platform, StyleSheet, Text, View} from 'react-native';
+import {
+  Button,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList
+} from 'react-native';
 
 
 
@@ -41,7 +49,7 @@ componentDidMount(){
       <View style={styles.container}>
 
       <Button
-        onPress={()=>{this.props.loadNextPage( fetchData,currentPage )}}
+        onPress={()=>{loadNextPage( fetchData,currentPage )}}
         title="Learn More"
         color="#841584"
         accessibilityLabel="Learn more about this purple button"
@@ -49,12 +57,40 @@ componentDidMount(){
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+
+
+        <FlatList
+              data={fetchedApiData}
+                keyExtractor={(item, index) => index.toString()}
+              renderItem={({ item }) => {
+                return(
+          <View>
+              <Image
+                style={styles.img}
+                resizeMode="contain"
+                source={{ uri: item.urls.thumb }}
+
+              />
+              <Text>{item.user.name}</Text>
+                  </View>
+                )
+              }}
+            />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  img: {
+   aspectRatio: 1,
+   alignSelf: "center",
+   flexDirection: "row",
+   height: 250,
+   width: 250,
+   //borderWidth: 1,
+   //borderRadius: 125
+ },
   container: {
     flex: 1,
     justifyContent: 'center',

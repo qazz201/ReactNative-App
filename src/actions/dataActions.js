@@ -14,6 +14,7 @@ export var storeAddApiData = fetchedApiData => {
     fetchedApiData
   };
 };
+
 export var dataHasErrorLoad = errorMsg => {
   return {
     type: constants.DATA_HAS_ERROR_LOAD,
