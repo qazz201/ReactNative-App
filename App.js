@@ -61,20 +61,21 @@ componentDidMount(){
 
         <FlatList
               data={fetchedApiData}
-                keyExtractor={(item, index) => index.toString()}
+              keyExtractor={(item, index) => index.toString()}
               renderItem={({ item }) => {
                 return(
           <View>
               <Image
                 style={styles.img}
-                resizeMode="contain"
-                source={{ uri: item.urls.thumb }}
+                resizeMode="cover"
+                source={{ uri: item.urls.small }}
 
               />
               <Text>{item.user.name}</Text>
                   </View>
                 )
               }}
+              onEndReached={()=>{loadNextPage( fetchData,currentPage )}}
             />
       </View>
     );
