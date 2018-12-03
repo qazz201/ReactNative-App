@@ -62,6 +62,9 @@ export default class App extends Component<Props> {
           data={fetchedApiData}
           keyExtractor={(item, index) => index.toString()}
           numColumns={2}
+          ListFooterComponent={() => (
+           <ActivityIndicator size="small" color="#0000ff" /> 
+          )}
           renderItem={({ item }) => {
             return (
               <View
@@ -85,7 +88,7 @@ export default class App extends Component<Props> {
             loadNextPage(fetchData, currentPage);
           }}
         />
-        {dataIsLoading && <ActivityIndicator size="small" color="#0000ff" />}
+        {/*dataIsLoading && <ActivityIndicator size="small" color="#0000ff" />*/}
       </View>
     );
   }
